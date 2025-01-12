@@ -1095,7 +1095,7 @@ const registerGTCEURecipes = (event) => {
         C: '#gtceu:circuits/mv',
         D: 'gtceu:solid_machine_casing'
     }).id('tfg:shaped/greenhouse')
-
+	
     // Контроллер электрического генератора
     event.shaped('gtceu:alternator', [
         'ABA', 
@@ -1211,34 +1211,30 @@ const registerGTCEURecipes = (event) => {
     //#endregion
 
     //#region Рецепты электрического генератора
-    
-    event.recipes.gtceu.alternator('32_rpm_to_32_eu')
-        .inputStress(256)
-        .circuit(0)
-        .rpm(32)
-        .duration(2)
-        .EUt(-32)
 
-    event.recipes.gtceu.alternator('64_rpm_to_48_eu')
-        .inputStress(256)
+    event.recipes.gtceu.alternator('lv_alternator')
         .circuit(1)
-        .rpm(64)
+        .rpm(256)
         .duration(2)
-        .EUt(-48)
+        .outputEU(128)
 
-    event.recipes.gtceu.alternator('128_rpm_to_64_eu')
-        .inputStress(256)
+    event.recipes.gtceu.alternator('mv_alternator')
         .circuit(2)
-        .rpm(128)
+        .rpm(256)
         .duration(2)
-        .EUt(-64)
+        .outputEU(512)
 
-    event.recipes.gtceu.alternator('256_rpm_to_96_eu')
-        .inputStress(256)
+    event.recipes.gtceu.alternator('hv_alternator')
         .circuit(3)
         .rpm(256)
         .duration(2)
-        .EUt(-96)
+        .outputEU(2048)
+
+    event.recipes.gtceu.alternator('ev_alternator')
+        .circuit(4)
+        .rpm(256)
+        .duration(2)
+        .outputEU(8192)
     
     //#endregion
 
